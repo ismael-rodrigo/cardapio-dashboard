@@ -48,9 +48,16 @@ export default function DashBoard() {
 
 
 
-    //const websocket = new WebSocket('')
+    
+    let websocket = new WebSocket('ws://localhost:8000/ws/shopcar')
 
+    websocket.onopen = (event)=>{
+        console.log(event)
+    }
 
+    websocket.onmessage = (message)=>{
+        console.log(message.data)
+    }
 
     useEffect(()=>{
         api.get('/api/shopcar',
