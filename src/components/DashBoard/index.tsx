@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import token from './../../../token'
 import { ShopCarType } from "../../types/shopcar.type";
-
+import useWebSocket, { ReadyState } from 'react-use-websocket';
+import DetailProductModal from "./detailProductModal";
 
 const Container = styled.div`
     display: flex;
@@ -42,22 +43,40 @@ const VerticalDivider = styled.div`
 export default function DashBoard() {
     const[shopCar,setShopCar] = useState<ShopCarType[]>([])
 
+
+
+
     const products_created =  shopCar.filter ((shop_car)=>(shop_car.status == 'created'))
     const products_progress = shopCar.filter((shop_car)=>(shop_car.status == 'progress'))
     const products_conclude = shopCar.filter((shop_car)=>(shop_car.status == 'conclude'))
 
 
-
+    //const handleMessageWebSocket = (message:MessageEvent<any>)=>{
+    //    console.log(message)
+    //    api.get(`/api/shopcar/${message.data}`,
+    //   {
+    //       headers: {
+    //         Authorization: 'Bearer ' + token 
+    //       }
+    //       }).then((response)=>{
+    //        var shop_copy = shopCar
+    //
+    //        shop_copy.forEach((shop ,index)=>{
+    //            if(shop.id == response.data){
+    //          shop_copy[index] = response.data
+    //        }
+    //      })
+    //        setShopCar(shop_copy)
+    //        
+    //       })
+    //}
+    //const websocket = useWebSocket('ws://localhost:8000/ws/shopcar' ,{onOpen:()=>console.log('connect') , onMessage:handleMessageWebSocket});
     
-    let websocket = new WebSocket('ws://localhost:8000/ws/shopcar')
 
-    websocket.onopen = (event)=>{
-        console.log(event)
-    }
 
-    websocket.onmessage = (message)=>{
-        console.log(message.data)
-    }
+ 
+
+
 
     useEffect(()=>{
         api.get('/api/shopcar',
@@ -88,6 +107,7 @@ export default function DashBoard() {
 
   return (
     <Container>
+        
         <ProductsGroup>
             <h1>Pedidos Realizados</h1>
             <br />

@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ShopCarType } from '../../types/shopcar.type';
 import { useEffect , useState } from 'react';
+import DetailProductModal from './detailProductModal';
 
 
 
@@ -20,6 +21,8 @@ export default function ProductCard(props:{
 }) {
 
   const[valueShopcar,setValuOfShopCar] = useState(0)
+  const[open,setOpen] = useState(false)
+
 
   useEffect(()=>{
     var acc = 0
@@ -57,6 +60,7 @@ export default function ProductCard(props:{
 
   return (
     <Card sx={{ }}>
+      <DetailProductModal open={open} setOpen={setOpen} shopCar={props.shopcar}/>
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
           Pedidido  23
@@ -83,7 +87,7 @@ export default function ProductCard(props:{
       <CardActions sx={{display:'flex',justifyContent:'space-between'}}>
         {props.shopcar.status != 'created' &&<Button onClick={()=>handleReturnStatus()} color='error' size="small">Voltar</Button> }
         
-        <Button  size="small">Detalhe</Button>
+        <Button  size="small" onClick={()=>setOpen(true)} >Detalhe</Button>
         <Button onClick={()=>handleNextStatus()} color='success' size="small">{props.shopcar.status !='conclude' ?'Avançar':'Concluir'}</Button>
       </CardActions>
     </Card>
