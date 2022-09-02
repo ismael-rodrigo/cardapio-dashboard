@@ -60,7 +60,7 @@ export default function ProductCard(props:{
 
   return (
     <Card sx={{ }}>
-      <DetailProductModal open={open} setOpen={setOpen} shopCar={props.shopcar}/>
+      <DetailProductModal handleNextStatus={handleNextStatus} open={open} setOpen={setOpen} shopCar={props.shopcar}/>
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
           Pedidido  23

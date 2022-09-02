@@ -1,4 +1,4 @@
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MmZkMmE2YzM5N2U5ODU4YTY3YzZjNTYiLCJleHAiOjE2NjE5ODk5MzN9.s1FclllZHtRGwUR3Nbe5_XXnC1dkm0xEpbgJq_wDMxg'
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MmZkMmE2YzM5N2U5ODU4YTY3YzZjNTYiLCJleHAiOjE2NjIxNTY2MDh9.Oua9nQ_C-awfaltWKhSzImCyD0RIWa5_Kqh8WyXXRGk'
 
 
 export default token

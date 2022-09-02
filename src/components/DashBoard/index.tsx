@@ -70,7 +70,8 @@ export default function DashBoard() {
     //        
     //       })
     //}
-    //const websocket = useWebSocket('ws://localhost:8000/ws/shopcar' ,{onOpen:()=>console.log('connect') , onMessage:handleMessageWebSocket});
+
+    //const websocket = useWebSocket('ws://localhost:8000/ws/shopcar' ,{onOpen:()=>console.log('connect') , onMessage:(message)=>console.log(message)});
     
 
 
@@ -113,7 +114,7 @@ export default function DashBoard() {
             <br />
             {products_created?.map((shop_created ,index)=>(
                 <div key={`${index}`}>
-                    <ProductCard updateStatus={updateStatus} shopcar={shop_created} index={index} />
+                    <ProductCard updateStatus={updateStatus}  shopcar={shop_created} index={index} />
                     <br />
                 </div>
             ))}
